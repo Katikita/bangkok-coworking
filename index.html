@@ -163,6 +163,95 @@
         .footer-link:hover {
             color: var(--primary-color);
         }
+
+        .illustration {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+        }
+
+        .illustration-container {
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .floating-illustration {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .floating-illustration-1 {
+            top: 10%;
+            left: 5%;
+            width: 200px;
+            transform: rotate(-15deg);
+        }
+
+        .floating-illustration-2 {
+            bottom: 10%;
+            right: 5%;
+            width: 200px;
+            transform: rotate(15deg);
+        }
+
+        .feature-illustration {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stats-section {
+            background-color: var(--light-color);
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            color: var(--dark-color);
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-illustration {
+            max-width: 300px;
+            margin: 2rem auto;
+        }
     </style>
 </head>
 <body>
@@ -195,8 +284,14 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with floating illustrations -->
     <section class="hero-section">
+        <div class="floating-illustration floating-illustration-1">
+            <img src="https://raw.githubusercontent.com/undraw/illustrations/master/svg/remote_team.svg" alt="Remote Team">
+        </div>
+        <div class="floating-illustration floating-illustration-2">
+            <img src="https://raw.githubusercontent.com/undraw/illustrations/master/svg/working_remotely.svg" alt="Working Remotely">
+        </div>
         <div class="container">
             <div class="search-container">
                 <h1 class="text-center mb-4" style="color: var(--dark-color);">Find Your Perfect Workspace</h1>
@@ -225,6 +320,68 @@
                     <button class="filter-btn">Silom</button>
                     <button class="filter-btn">Sathorn</button>
                     <button class="filter-btn">Thonglor</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Why Choose Our Spaces?</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <img src="https://raw.githubusercontent.com/undraw/illustrations/master/svg/connected_world.svg" alt="Connected World" class="feature-illustration">
+                        <h4 class="mt-4">High-Speed Internet</h4>
+                        <p>Stay connected with our ultra-fast fiber internet</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <img src="https://raw.githubusercontent.com/undraw/illustrations/master/svg/meeting.svg" alt="Meeting" class="feature-illustration">
+                        <h4 class="mt-4">Meeting Rooms</h4>
+                        <p>Professional spaces for your team meetings</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <img src="https://raw.githubusercontent.com/undraw/illustrations/master/svg/coffee_break.svg" alt="Coffee Break" class="feature-illustration">
+                        <h4 class="mt-4">Free Coffee</h4>
+                        <p>Stay energized with our premium coffee</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Spaces</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Members</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Access</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-number">4.9</div>
+                        <div class="stat-label">Rating</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -293,6 +450,22 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2>Ready to Find Your Perfect Workspace?</h2>
+                    <p class="lead">Join our community of professionals and entrepreneurs</p>
+                    <a href="#" class="btn btn-light btn-lg mt-3">Get Started</a>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://raw.githubusercontent.com/undraw/illustrations/master/svg/team_collaboration.svg" alt="Team Collaboration" class="cta-illustration">
                 </div>
             </div>
         </div>
