@@ -7,38 +7,167 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #FF5A5F;
+            --secondary-color: #00A699;
+            --dark-color: #484848;
+            --light-color: #F7F7F7;
+        }
+
+        body {
+            font-family: 'Circular', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            color: var(--dark-color);
+            background-color: white;
+        }
+
+        .navbar {
+            background-color: white !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            color: var(--primary-color) !important;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+            margin: 0 1rem;
+        }
+
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
-            height: 400px;
+            height: 500px;
             display: flex;
             align-items: center;
             color: white;
+            position: relative;
         }
+
+        .search-container {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            border: none;
+            border-bottom: 2px solid #eee;
+            padding: 1rem;
+            font-size: 1.1rem;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-bottom-color: var(--primary-color);
+        }
+
+        .filter-section {
+            background-color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .filter-btn {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 0.5rem 1.5rem;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
         .space-card {
-            transition: transform 0.3s;
-            margin-bottom: 20px;
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
+
         .space-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-        .filter-section {
-            background-color: #f8f9fa;
-            padding: 20px 0;
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
         }
+
         .amenity-tag {
-            background-color: #e9ecef;
-            padding: 5px 10px;
-            border-radius: 15px;
-            margin: 5px;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 0.25rem;
             display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        .price-tag {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 20px;
+            padding: 0.5rem 1.5rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff3b40;
+            border-color: #ff3b40;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 2rem;
+            color: var(--dark-color);
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            margin: 0.5rem 0;
+            display: block;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-color);
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">BKK Co-working</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -68,11 +197,15 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="container text-center">
-            <h1 class="display-4">Find Your Perfect Co-working Space in Bangkok</h1>
-            <p class="lead">Discover the best places to work, collaborate, and network</p>
-            <div class="mt-4">
-                <input type="text" class="form-control form-control-lg w-75 mx-auto" placeholder="Search by location or space name...">
+        <div class="container">
+            <div class="search-container">
+                <h1 class="text-center mb-4" style="color: var(--dark-color);">Find Your Perfect Workspace</h1>
+                <div class="input-group mb-3">
+                    <input type="text" class="search-input" placeholder="Search by location or space name...">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -80,35 +213,18 @@
     <!-- Filter Section -->
     <section class="filter-section">
         <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <select class="form-select">
-                        <option selected>Price Range</option>
-                        <option>Under ฿500/day</option>
-                        <option>฿500-฿1000/day</option>
-                        <option>Over ฿1000/day</option>
-                    </select>
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <button class="filter-btn active">All Spaces</button>
+                    <button class="filter-btn">Under ฿500/day</button>
+                    <button class="filter-btn">฿500-฿1000/day</button>
+                    <button class="filter-btn">Over ฿1000/day</button>
                 </div>
-                <div class="col-md-3">
-                    <select class="form-select">
-                        <option selected>Location</option>
-                        <option>Sukhumvit</option>
-                        <option>Silom</option>
-                        <option>Sathorn</option>
-                        <option>Thonglor</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select class="form-select">
-                        <option selected>Amenities</option>
-                        <option>Meeting Rooms</option>
-                        <option>High-Speed Internet</option>
-                        <option>24/7 Access</option>
-                        <option>Printing Services</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <button class="btn btn-primary w-100">Apply Filters</button>
+                <div class="col-12 text-center mt-3">
+                    <button class="filter-btn">Sukhumvit</button>
+                    <button class="filter-btn">Silom</button>
+                    <button class="filter-btn">Sathorn</button>
+                    <button class="filter-btn">Thonglor</button>
                 </div>
             </div>
         </div>
@@ -117,7 +233,7 @@
     <!-- Spaces Section -->
     <section class="py-5" id="spaces">
         <div class="container">
-            <h2 class="text-center mb-4">Featured Co-working Spaces</h2>
+            <h2 class="section-title text-center">Featured Co-working Spaces</h2>
             <div class="row">
                 <!-- Space Card 1 -->
                 <div class="col-md-4">
@@ -131,8 +247,10 @@
                                 <span class="amenity-tag"><i class="fas fa-coffee"></i> Free Coffee</span>
                                 <span class="amenity-tag"><i class="fas fa-users"></i> Meeting Rooms</span>
                             </div>
-                            <p class="text-primary">Starting from ฿600/day</p>
-                            <a href="#" class="btn btn-outline-primary">View Details</a>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="price-tag mb-0">฿600/day</p>
+                                <a href="#" class="btn btn-primary">View Details</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -149,8 +267,10 @@
                                 <span class="amenity-tag"><i class="fas fa-print"></i> Printing</span>
                                 <span class="amenity-tag"><i class="fas fa-clock"></i> 24/7 Access</span>
                             </div>
-                            <p class="text-primary">Starting from ฿500/day</p>
-                            <a href="#" class="btn btn-outline-primary">View Details</a>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="price-tag mb-0">฿500/day</p>
+                                <a href="#" class="btn btn-primary">View Details</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -167,8 +287,10 @@
                                 <span class="amenity-tag"><i class="fas fa-glass-cheers"></i> Social Events</span>
                                 <span class="amenity-tag"><i class="fas fa-phone"></i> Phone Booths</span>
                             </div>
-                            <p class="text-primary">Starting from ฿800/day</p>
-                            <a href="#" class="btn btn-outline-primary">View Details</a>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="price-tag mb-0">฿800/day</p>
+                                <a href="#" class="btn btn-primary">View Details</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -177,7 +299,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-light py-4">
+    <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -186,11 +308,9 @@
                 </div>
                 <div class="col-md-4">
                     <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-light">About Us</a></li>
-                        <li><a href="#" class="text-light">Contact</a></li>
-                        <li><a href="#" class="text-light">Privacy Policy</a></li>
-                    </ul>
+                    <a href="#" class="footer-link">About Us</a>
+                    <a href="#" class="footer-link">Contact</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
                 </div>
                 <div class="col-md-4">
                     <h5>Contact Us</h5>
