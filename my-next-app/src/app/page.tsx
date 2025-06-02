@@ -87,7 +87,7 @@ const LandingPage = () => {
           {/* Absolutely positioned image 0px below button */}
           <div className="w-full flex justify-center absolute left-0" style={{ top: 'calc(100% + 0px)' }}>
             <img 
-              src="/lovable-uploads/2234.png" 
+              src="/lovable-uploads/4445.png" 
               alt="Co-working space illustration" 
               width={960}
               height={640}
