@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'standalone',
+  output: 'export',
   images: {
     domains: ['workinbkk.vercel.app'],
     unoptimized: true,
@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  trailingSlash: true,
 };
 
 export default nextConfig;
