@@ -1,0 +1,16 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        run: |
+          touch .nojekyll
+          git add .nojekyll
+          git commit -m "Disable Jekyll"
+          git push 
