@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Button } from '../components/ui/button';
+import ThreeQSVG from '../../public/lovable-uploads/3q.svg';
 
 const LandingPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -86,14 +87,7 @@ const LandingPage = () => {
           </Button>
           {/* Absolutely positioned image 0px below button */}
           <div className="w-full flex justify-center absolute left-0" style={{ top: 'calc(100% + 0px)' }}>
-            <img 
-              src="/lovable-uploads/4445.png" 
-              alt="Co-working space illustration" 
-              width={960}
-              height={640}
-              className="object-contain"
-              style={{ maxWidth: '960px', maxHeight: '640px' }}
-            />
+            <ThreeQSVG width={960} height={640} className="object-contain" style={{ maxWidth: '960px', maxHeight: '640px' }} />
           </div>
         </div>
       </div>
