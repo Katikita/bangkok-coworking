@@ -53,21 +53,14 @@ const LandingPage = () => {
                 >
                   Find your Co-working space in
                 </div>
-                <div className="relative flex justify-center items-center w-full">
-                  {/* SVG as background/accent */}
-                  <ThreeQSVG
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-                    style={{ zIndex: 0, width: 220, height: 120, opacity: 0.5 }}
-                  />
-                  {/* The text */}
-                  <div
-                    className={`relative z-10 text-center text-black text-[96px] md:text-[64px] font-gochi font-normal leading-[72px] md:leading-[48px] w-full transition-all duration-600 ${
-                      isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-                    }`}
-                    style={{ animationDelay: '300ms' }}
-                  >
-                    Bangkok
-                  </div>
+                <div
+                  className={`flex items-center justify-center gap-2 text-center text-black text-[96px] md:text-[64px] font-gochi font-normal leading-[72px] md:leading-[48px] w-full transition-all duration-600 ${
+                    isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+                  }`}
+                  style={{ animationDelay: '300ms' }}
+                >
+                  Bangkok
+                  <ThreeQSVG style={{ width: 60, height: 60 }} />
                 </div>
               </div>
             </div>
