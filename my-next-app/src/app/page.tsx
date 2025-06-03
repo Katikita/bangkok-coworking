@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from '../components/ui/button';
 import ThreeQSVG from '../../public/lovable-uploads/3q.svg';
+import FloatingHeader from '../components/FloatingHeader';
 
 const LandingPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -25,6 +26,9 @@ const LandingPage = () => {
       <div className="absolute w-[3px] h-[1054px] bg-[#F4F3F3] left-[264px] top-0 hidden xl:block" />
       
       <div className="w-full max-w-[1280px] px-8 mx-auto mt-[200px] md:mt-[120px] flex flex-col items-center gap-8 relative">
+        <div className="relative w-full flex justify-center" style={{ minHeight: 44, marginTop: 44 }}>
+          <FloatingHeader />
+        </div>
         <div className="flex flex-col items-center gap-9 w-full">
           <div className="w-full max-w-[1024px] flex flex-col items-center gap-6">
             <div className="flex flex-col items-center gap-4 w-full">
