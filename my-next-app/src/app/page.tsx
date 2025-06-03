@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from '../components/ui/button';
 import ThreeQSVG from '../../public/lovable-uploads/3q.svg';
 import FloatingHeader from '../components/FloatingHeader';
+import { Search } from 'lucide-react';
 
 const LandingPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -85,11 +86,12 @@ const LandingPage = () => {
             {/* CTA Button */}
             <Button
               onClick={handleSearch}
-              className={`px-7 py-4 bg-[#007AFF] hover:bg-[#0051D5] border border-[#007AFF] hover:border-[#0051D5] rounded-[20px] text-white text-lg font-inter font-semibold leading-7 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm ${
+              className={`px-7 py-4 bg-[#007AFF] hover:bg-[#0051D5] border border-[#007AFF] hover:border-[#0051D5] rounded-[20px] text-white text-lg font-inter font-semibold leading-7 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm flex items-center gap-2 ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
               }`}
               style={{ animationDelay: '600ms' }}
             >
+              <Search size={20} color="white" />
               Find Cafè in Bangkok
             </Button>
             {/* Absolutely positioned PNG below button */}
