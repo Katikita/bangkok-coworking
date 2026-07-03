@@ -4,10 +4,14 @@ import React, { useEffect, useState } from 'react';
 import { Button } from '../components/ui/button';
 import ThreeQSVG from '../../public/lovable-uploads/3q.svg';
 import FloatingHeader from '../components/FloatingHeader';
-import { Search } from 'lucide-react';
+import SearchIcon from '@mui/icons-material/Search';
+import { Input } from '../components/ui/input';
+import { CafeMap } from '../components/CafeMap';
+import { HeroIllustration } from '../components/HeroIllustration';
 
 const LandingPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     setIsLoaded(true);
@@ -91,7 +95,7 @@ const LandingPage = () => {
               }`}
               style={{ animationDelay: '600ms' }}
             >
-              <Search size={20} color="white" />
+              <SearchIcon style={{ fontSize: 20, color: 'white' }} />
               Find Cafè in Bangkok
             </Button>
             {/* Absolutely positioned PNG below button */}
@@ -105,6 +109,83 @@ const LandingPage = () => {
                 style={{ maxWidth: '960px', maxHeight: '640px' }}
               />
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="min-h-screen bg-gradient-to-b from-white to-gray-100 relative mt-24">
+        {/* Background decorative circles */}
+        <div className="absolute top-[474px] right-[-138px] w-[277px] h-[265px] bg-[#F7EADD] rounded-full rotate-180 z-0" />
+        <div className="absolute top-[463px] right-[54px] w-[166px] h-[160px] bg-[#FFF4EA] rounded-full rotate-180 z-0" />
+        {/* Hero illustration */}
+        <div className="absolute z-5 right-0 top-0">
+          <HeroIllustration />
+        </div>
+        {/* Main content container */}
+        <div className="relative z-30">
+          <div className="max-w-[912px] mx-auto pt-20 px-4">
+            <div className="px-4">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-3 bg-[#F5F5FF] rounded-2xl p-1 mb-4 mix-blend-multiply">
+                <div className="bg-white rounded-2xl px-3 py-1 border border-[#D7E3FE]">
+                  <span className="text-[#007AFF] text-sm font-medium">Demo</span>
+                </div>
+                <div className="flex items-center gap-1 pr-2">
+                  <span className="text-[#007AFF] text-sm font-medium">Join now for free</span>
+                  <div className="w-4 h-4 flex items-center justify-center">
+                    <div className="w-2 h-2 border border-[#007AFF] rotate-45 border-l-0 border-b-0" />
+                  </div>
+                </div>
+              </div>
+              {/* Main heading */}
+              <div className="mb-4 relative">
+                <h1 className="text-[40px] leading-[40px] font-medium text-[#101828] mb-0">
+                  Explore your flow spot ?
+                </h1>
+                <div className="relative">
+                  <h2
+                    className="text-[64px] leading-[64px] font-bold text-black font-gaegu"
+                    style={{ fontFamily: "'Gaegu', cursive" }}
+                  >
+                    Cafe&Co-work space
+                  </h2>
+                  {/* Blue underline accent */}
+                  <div className="absolute right-0 top-8 w-16 h-16 z-10">
+                    <svg width="63" height="64" viewBox="0 0 63 64" fill="none">
+                      <path d="M10 50 Q30 30 50 50" stroke="#007AFF" strokeWidth="4" fill="none" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              {/* Description */}
+              <p className="text-[#475467] text-xl leading-[30px] mb-8 max-w-[578px]">
+                Use the map to locate peaceful places perfect for focus, comfort, and long sessions.
+              </p>
+              {/* Search section */}
+              <div className="flex items-start gap-4 mb-8">
+                <div className="relative w-[300px]">
+                  <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
+                    <SearchIcon className="w-4 h-4" style={{ color: '#CFD8DC' }} />
+                  </div>
+                  <Input
+                    placeholder="Search"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-12 h-[42px] border-[#CFD8DC] text-[#90A4AE] placeholder:text-[#90A4AE] rounded-2xl"
+                  />
+                </div>
+                <Button 
+                  onClick={handleSearch}
+                  className="h-10 px-6 bg-[#007AFF] hover:bg-[#005FCC] text-white text-xs font-bold uppercase tracking-wide rounded-2xl flex items-center gap-2"
+                >
+                  <SearchIcon style={{ fontSize: 18, color: 'white' }} />
+                  Search
+                </Button>
+              </div>
+            </div>
+          </div>
+          {/* Map section */}
+          <div className="mt-8 px-4 relative z-20">
+            <CafeMap />
           </div>
         </div>
       </div>

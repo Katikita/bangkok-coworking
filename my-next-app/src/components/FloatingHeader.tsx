@@ -21,7 +21,7 @@ export default function FloatingHeader() {
       <div style={{
         color: '#0F161E', 
         fontSize: 32, 
-        fontFamily: 'Gaegu', 
+        fontFamily: 'Gaegu, cursive', 
         fontWeight: '700', 
         lineHeight: '35.20px', 
         wordWrap: 'break-word'
